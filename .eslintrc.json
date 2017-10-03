@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "rules": {
+    "react/jsx-tag-spacing/beforeSelfClosing": {
+      "closingSlash": "never",
+      "beforeSelfClosing": "never",
+      "afterOpening": "never"
+    }
+  }
+}
