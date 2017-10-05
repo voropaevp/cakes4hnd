@@ -10,8 +10,8 @@ module.exports = {
 
   },
   output: {
-    path: path.resolve(__dirname, './server/static/assets/'),
-    filename: './js/[name]-bundle.js'
+    path: path.resolve(__dirname, './server/static/'),
+    filename: './assets/js/[name]-bundle.js'
   },
 
   plugins: [
@@ -37,7 +37,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: './css/'
+            outputPath: './assets/css/'
           }
         }]
       },

@@ -1,6 +1,13 @@
 {
   "name": "cakes4arden",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.3"
+  },
+  "keywords": [
+    "arden",
+    "assignment"
+  ],
   "description": "HND assessment for Arden University, WebSite design",
   "main": "index.js",
   "dependencies": {
@@ -15,6 +22,7 @@
     "queueing-subject": "^0.1.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-font-face": "^0.2.1",
     "react-google-maps": "^8.3.2",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.2",
@@ -95,6 +103,7 @@
     "yarn": "^0.21.3"
   },
   "scripts": {
+    "start": "node server/app.js",
     "debug": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.development --hot --progress --inline",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production --progress"
   },

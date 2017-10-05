@@ -2,10 +2,12 @@ import { combineReducers } from 'redux'
 import Auth from './auth'
 import { routerReducer } from 'react-router-redux'
 import { cartReducer } from 'react-shopping-cart'
+import Shop from './shop'
 
 const rootReducer = combineReducers(
   {
     Auth,
+    Shop,
     routing: routerReducer,
     cart: cartReducer
   }

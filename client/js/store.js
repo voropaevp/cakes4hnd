@@ -7,7 +7,7 @@ const configureStore = (reducer, middleware) => {
   return createStore(
     reducer,
     undefined,
-    composeEnhancers(applyMiddleware(...middleware, routerMiddleware(browserHistory)))
+    composeEnhancers(applyMiddleware(routerMiddleware(browserHistory))) // no real middlwares
   )
 }
 

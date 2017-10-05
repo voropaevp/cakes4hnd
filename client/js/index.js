@@ -2,10 +2,9 @@ import ReactDom from 'react-dom'
 import createRoutes from './routes'
 import createStore from './store'
 import rootReducer from './reducers/root'
-import epicMiddleware from './middleware/reduxObservable'
 import {setCartCurrency} from 'react-shopping-cart'
 
-export const store = createStore(rootReducer, [epicMiddleware])
+export const store = createStore(rootReducer)
 store.dispatch(setCartCurrency('USD'))
 
 export const routes = createRoutes(store)

@@ -1,7 +1,17 @@
+import ReactFontFace from 'react-font-face'
+import LillyMae from '../../server/static/assets/fonts/LillyMae-Regular.otf'
+
 export const styles = {
   rootContainer: {
     display: 'flex',
     flexDirection: 'column'
+  },
+  content: {
+    height: '100%',
+    marginLeft: '2em',
+    marginRight: '2em',
+    marginTop: '1em',
+    marginBottom: '1em'
   },
   body: {
     background: '#e8effd',
@@ -54,5 +64,21 @@ export const styles = {
       maxHeight: '252px',
       maxWidth: '574px'
     }
+  },
+  shop: {
+    product: {
+      margin: '2em',
+      height: '100%'
+    },
+    productHeader: {
+      fontFamily: 'LillyMae'
+    },
+    cart: {
+      margin: '2em',
+      width: '100%'
+    }
+  },
+  signup: {
+    paddingBottom: '100%'
   }
 }

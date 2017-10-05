@@ -26,3 +26,9 @@ export const CAKES_PLACE = {
   placeId: 'ChIJS-q89RtceUgR_sOU1vDdh_E',
   location: CAKES_LOCATION
 }
+
+// Stock
+
+export const STOCK = [{
+
+}]

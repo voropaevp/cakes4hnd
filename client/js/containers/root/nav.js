@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
 import Nav from '../../components/root/nav'
-import { revokeToken } from '../../actions/auth/auth'
 
 const mapDispatchToProps = dispatch => ({
-  revokeToken: () => dispatch(revokeToken())
+  revokeToken: () => dispatch(() => {}) // should be real logout action
 })
 
 const mapStateToProps = state => ({
