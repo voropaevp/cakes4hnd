@@ -5799,9 +5799,9 @@ react-font-face@^0.2.1:
     react-dom "^15.5.4"
     react-helmet "^5.1.3"
 
-react-google-maps@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-8.3.2.tgz#a5ce9d0c9fbea47f2ce55e36693b50d4a664a14d"
+react-google-maps@^8.3.4:
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-8.3.4.tgz#883ece40f092a191c32cd0cd475b0b15a44f0907"
   dependencies:
     babel-runtime "^6.11.6"
     can-use-dom "^0.1.0"
