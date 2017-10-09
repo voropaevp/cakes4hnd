@@ -9,6 +9,10 @@ export const FAVICON = '/assets/images/favicon.png'
 export const SMALL_LOGO = '/assets/images/logo_small.png'
 export const MARKER = '/assets/images/marker.png'
 
+// Errors
+
+export const NOT_FOUND = '/assets/images/404.png'
+
 // Tunables
 
 export const API_REQUEST_TIMEOUT = 4000
@@ -27,8 +31,28 @@ export const CAKES_PLACE = {
   location: CAKES_LOCATION
 }
 
-// Stock
+// Localisatin
 
-export const STOCK = [{
-
-}]
+export const LOCALISATION = {
+  bathCake: 'Bath Cake',
+  strawberryCake: 'Strawberry Cake',
+  cheesecake: 'Cheesecake',
+  japaneseCake: 'Japanese Cake',
+  tiramisu: 'Tiramisu',
+  tinkerbellBirthdayCake: 'Tinkerbell Birthday Cake',
+  twilightCake: 'Twilight Cake',
+  miniXmasCake: 'Mini Xmas Cakes',
+  monsterBookCake: 'Monster Book of Monsters Cake',
+  frozenChocGranolaCreamCake: 'Frozen Granola Cream Cake',
+  chocoCake: 'Chocolate Cake',
+  nextDayDelivery: 'Next day delivery',
+  normalDelivery: '2-3 Business days delivery',
+  pickup: 'Pick up at the store',
+  size: 'Size',
+  small: 'Small',
+  big: 'Big',
+  medium: 'Medium',
+  GBP: '£',
+  EUR: '€',
+  USD: '$'
+}

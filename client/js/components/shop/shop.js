@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Col, Row } from 'reactstrap'
+import { Link } from 'react-router'
+import { Col, Row, Button } from 'reactstrap'
 import { styles } from '../../styles'
 import {
   Cart,
@@ -8,29 +9,9 @@ import {
   CheckoutButton,
   cartLocalization
 } from 'react-shopping-cart'
+import { LOCALISATION } from '../../constants'
 
 const {getDefaultLocalization} = cartLocalization
-
-const localisation = {
-  bathCake: 'Bath Cake',
-  strawberryCake: 'Strawberry Cake',
-  cheesecake: 'Cheesecake',
-  japaneseCake: 'Japanese Cake',
-  tiramisu: 'Tiramisu',
-  tinkerbellBirthdayCake: 'Tinkerbell Birthday Cake',
-  twilightCake: 'Twilight Cake',
-  miniXmasCake: 'Mini Xmas Cakes',
-  monsterBookCake: 'Monster Book of Monsters Cake',
-  frozenChocGranolaCreamCake: 'Frozen Granola Cream Cake',
-  chocoCake: 'Chocolate Cake',
-  size: 'Size',
-  small: 'Small',
-  big: 'Big',
-  medium: 'Medium',
-  GBP: '£',
-  EUR: '€',
-  USD: '$'
-}
 
 const cakeWithExtraCost = {
   big: 'Big (+{cost}{localizedCurrency})',
@@ -38,7 +19,7 @@ const cakeWithExtraCost = {
 }
 
 const descNode = product => <div>
-  <h3 style={styles.shop.productHeader}>{localisation[product.name]}</h3>
+  <h3>{LOCALISATION[product.name]}</h3>
   <img className='img-fluid' src={product.imageSrc}/>
   <div>{product.license}</div>
 </div>
@@ -52,7 +33,7 @@ class Shop extends PureComponent {
           'product',
           'en',
           {
-            ...localisation,
+            ...LOCALISATION,
             ...cakeWithExtraCost
           }
         ),
@@ -60,13 +41,13 @@ class Shop extends PureComponent {
         getDefaultLocalization(
           'checkoutButton',
           'en',
-          localisation
+          LOCALISATION
         ),
       getCartLocalization:
         getDefaultLocalization(
           'cart',
           'en',
-          localisation
+          LOCALISATION
         )
     }
   }
@@ -82,7 +63,15 @@ class Shop extends PureComponent {
       <CheckoutButton
         getLocalization={getCheckoutButtonLocalization}
         checkoutURL='/checkout'
+        linkComponent={() => (
+          <Link to='/checkout' style={styles.shop.checkOutLink}>
+            <Button color='success' size='lg' block>
+              Check Out
+            </Button>
+          </Link>
+        )}
       />
+
     return (
       <Row noGutters>
         <Row noGutters>
@@ -91,7 +80,7 @@ class Shop extends PureComponent {
               <Col xs={12} sm={6} md={4} lg={4} xl={3} key={product.id}>
                 <div className='container container-fluid' style={styles.shop.product}>
                   <Product
-                    {...product} checkoutButton={<div></div>}
+                    {...product} checkoutButton={<div/>}
                     getLocalization={getProductLocalization}
                     descriptionNode={descNode(product)}
                   />

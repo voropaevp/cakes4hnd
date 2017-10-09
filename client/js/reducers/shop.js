@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export const initialState = {
   products: [
@@ -107,7 +107,7 @@ export const initialState = {
       id: 'tiramisu',
       path: '/shop',
       license: <p><a href='https://www.flickr.com/photos/158295424@N02/36826241070/'>Tiramisu</a> by
-        <a href='https://www.flickr.com/photos/158295424@N02/'>Amelia DoesDinner</a> is licensed under
+        <a href='https://www.flickr.com/photos/158295424@N02/'> Amelia DoesDinner</a> is licensed under
         <a href='https://creativecommons.org/licenses/by/2.0/'> CC BY 2.0</a></p>,
       properties: {
         size: [
@@ -360,8 +360,45 @@ export const initialState = {
       currency: 'GBP',
       imageSrc: '/assets/images/cakes/cheesecake.jpg'
     }
+  ],
+  deliveries: [
+    {
+      name: 'pickup',
+      id: 'pickup',
+      type: 'delivery',
+      quantity: 1,
+      imageSrc: '/assets/images/truck.png',
+      path: '/shop',
+      properties: {},
+      propertiesToShowInCart: [],
+      prices: {GBP: 0, EUR: 0, USD: 0},
+      currency: 'GBP'
+    },
+    {
+      name: 'normalDelivery',
+      id: 'normal-delivery',
+      quantity: 1,
+      imageSrc: '/assets/images/truck.png',
+      propertiesToShowInCart: [],
+      properties: {},
+      type: 'delivery',
+      path: '/shop',
+      prices: {GBP: 2, EUR: 3, USD: 3},
+      currency: 'GBP'
+    },
+    {
+      name: 'nextDayDelivery',
+      id: 'next-day-delivery',
+      propertiesToShowInCart: [],
+      quantity: 1,
+      imageSrc: '/assets/images/truck.png',
+      properties: {},
+      type: 'delivery',
+      path: '/shop',
+      prices: {GBP: 4, EUR: 6, USD: 6},
+      currency: 'GBP'
+    }
   ]
-
 }
 
 function Shop (state = initialState, action) {

@@ -7,13 +7,13 @@ export const styles = {
     flexDirection: 'column'
   },
   content: {
-    height: '100%',
     marginLeft: '2em',
     marginRight: '2em',
     marginTop: '1em',
     marginBottom: '1em'
   },
   body: {
+    minHeight: '100vh',
     background: '#e8effd',
     fontFamily: 'Roboto',
     margin: 0
@@ -67,18 +67,28 @@ export const styles = {
   },
   shop: {
     product: {
-      margin: '2em',
       height: '100%'
     },
     productHeader: {
       fontFamily: 'LillyMae'
     },
     cart: {
-      margin: '2em',
       width: '100%'
+    },
+    checkOutLink: {
+      textDecoration: 'none',
+      color: 'white',
+      width: '80%'
     }
   },
   signup: {
-    paddingBottom: '100%'
+    width: '100%'
+  },
+  checkOut: {
+    marginBottom: '2em'
+  },
+  notFound: {
+    height: '100%',
+    width: '100%'
   }
 }

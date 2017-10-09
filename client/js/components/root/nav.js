@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Navbar, Nav, NavbarBrand, NavLink, NavbarToggler, Collapse } from 'reactstrap'
 import {Link} from 'react-router'
 import SignIn from '../../containers/root/forms/signIn'
+import CheckOut from '../../containers/shop/checkOut'
 import { SMALL_LOGO, ADMIN_USER } from '../../constants'
 import { styles } from '../../styles'
 
@@ -40,6 +41,7 @@ export class CakesNav extends React.Component {
                 : <NavLink tag={Link} to={`/profile/${this.props.user}`}>{this.props.user} profile</NavLink>
             }
           </Nav>
+          {Object.keys(this.props.cartProducts).length !== 0 && <NavLink tag={Link} to='/checkout'>Check Out</NavLink>}
           <Nav className='ml-auto' style={styles.nav.loginWrapper}>
             {
               this.props.user
@@ -55,6 +57,7 @@ export class CakesNav extends React.Component {
 
 CakesNav.propTypes = {
   user: PropTypes.string,
+  cartProducts: PropTypes.any,
   revokeToken: PropTypes.func.isRequired
 }
 

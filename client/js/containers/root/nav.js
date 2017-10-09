@@ -6,7 +6,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
-  user: state.Auth.user
+  user: state.Auth.user,
+  cartProducts: state.cart.products
 })
 
 const NavContainer = connect(mapStateToProps, mapDispatchToProps)(Nav)

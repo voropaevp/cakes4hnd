@@ -17,9 +17,13 @@ export let App = ({children}) => (
       <link rel='stylesheet' href='/assets/css/cakes4arden-bundle.css'/>
       <title>Cakes For Arden</title>
     </Helmet>
-    <div>
-      <Row noGutters><Nav/></Row>
-      <Row noGutters style={styles.content}>{children}</Row>
+    <div className='d-flex flex-column '>
+      <div>
+        <Row noGutters><Nav/></Row>
+      </div>
+      <div>
+        <Row noGutters style={styles.content}>{children}</Row>
+      </div>
     </div>
   </div>
 )
