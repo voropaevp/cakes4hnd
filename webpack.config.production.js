@@ -10,8 +10,9 @@ config.plugins.push(
   new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
   new CompressionPlugin({
     asset: '[path].gz[query]',
+    deleteOriginalAssets: true,
     algorithm: 'gzip',
-    test: /\.js$|\.html$/,
+    test: /\.js$|\.html$|\.css$/,
     threshold: 10240,
     minRatio: 0.8
   })

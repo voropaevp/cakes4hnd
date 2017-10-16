@@ -15,7 +15,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin({filename: './css/[name]-bundle.css', allChunks: true})
+    new ExtractTextPlugin({filename: './assets/css/[name]-bundle.css', allChunks: true})
   ],
   externals: {
     'react/addons': true,
