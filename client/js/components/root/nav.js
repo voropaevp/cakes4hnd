@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Navbar, Nav, NavbarBrand, NavLink, NavbarToggler, Collapse } from 'reactstrap'
-import {Link} from 'react-router'
+import { Navbar, Nav, NavbarBrand, NavLink, NavbarToggler, Collapse, Row, Col } from 'reactstrap'
+import { Link } from 'react-router'
 import SignIn from '../../containers/root/forms/signIn'
-import CheckOut from '../../containers/shop/checkOut'
 import { SMALL_LOGO, ADMIN_USER } from '../../constants'
 import { styles } from '../../styles'
 
@@ -28,27 +27,34 @@ export class CakesNav extends React.Component {
         <NavbarToggler right onClick={this.toggle}/>
         <NavbarBrand> <img style={styles.nav.smallLogo} href='#' src={SMALL_LOGO}/> </NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav navbar>
-            <NavLink tag={Link} to='/shop'>Shop</NavLink>
-            <NavLink tag={Link} to='/about'>About Us</NavLink>
-            {
-              this.props.user === ADMIN_USER &&
-              <NavLink style={styles.nav.adminLink} tag={Link} to='/admin'>Admin</NavLink>
-            }
-            {
-              !this.props.user
-                ? <NavLink tag={Link} to='/signup'>Sign Up</NavLink>
-                : <NavLink tag={Link} to={`/profile/${this.props.user}`}>{this.props.user} profile</NavLink>
-            }
-          </Nav>
-          {Object.keys(this.props.cartProducts).length !== 0 && <NavLink tag={Link} to='/checkout'>Check Out</NavLink>}
-          <Nav className='ml-auto' style={styles.nav.loginWrapper}>
-            {
-              this.props.user
-                ? <NavLink tag={Link} to='/signout' onClick={this.props.revokeToken}>Sign Out</NavLink>
-                : <SignIn key='sign_in' />
-            }
-          </Nav>
+          <Row>
+            <Col xs={12} sm={8}>
+              <Nav navbar>
+                <NavLink tag={Link} active to='/shop'>Shop</NavLink>
+                <NavLink tag={Link} to='/about'>About Us</NavLink>
+                {
+                  this.props.user === ADMIN_USER &&
+                  <NavLink style={styles.nav.adminLink} tag={Link} to='/admin'>Admin</NavLink>
+                }
+                {
+                  !this.props.user
+                    ? <NavLink tag={Link} to='/signup'>Sign Up</NavLink>
+                    : <NavLink tag={Link} to={`/profile/${this.props.user}`}>{this.props.user} profile</NavLink>
+                }
+                {Object.keys(this.props.cartProducts).length !== 0 &&
+                <NavLink tag={Link} to='/checkout'>Check Out</NavLink>}
+              </Nav>
+            </Col>
+            <Col xs={12} sm={4}>
+              <Nav className='ml-auto'>
+                {
+                  this.props.user
+                    ? <NavLink tag={Link} to='/signout' onClick={this.props.revokeToken}>Sign Out</NavLink>
+                    : <SignIn key='sign_in'/>
+                }
+              </Nav>
+            </Col>
+          </Row>
         </Collapse>
       </Navbar>
     )
