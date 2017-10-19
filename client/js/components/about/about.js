@@ -34,12 +34,12 @@ const CakeStreetView = withGoogleMap(props =>
 
 const About = () => (
   <Row>
-    <Col lg={6} sm={12} >
+    <Col lg={6} md={12} >
       <h3 style={styles.about.description}>About Company:</h3>
       <img style={styles.about.bigLogo} src={BIG_LOGO}/>
       <p style={styles.about.description}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        magna aliqua. Ut eqnim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -50,7 +50,7 @@ const About = () => (
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </Col>
-    <Col lg={6} sm={12} className={'mx-auto text-center'}>
+    <Col lg={6} md={12} xs={12}  className={'mx-auto text-center'}>
       <h3>Location:</h3>
       <CakeMap
         containerElement={<div style={styles.about.mapContainer}/>}
@@ -66,7 +66,7 @@ const About = () => (
         mapElement={<div style={styles.about.map}/>}
       />
     </Col>
-    <Col sm={12}>
+    <Col lg={12} md={12} xs={12} >
       <ul>
         <li>Hearts and cakes icons made by <a href='https://www.flaticon.com/authors/google'>Google</a> from
           <a href='https://www.flaticon.com/'> www.flaticon.com</a> is licensed under
