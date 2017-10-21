@@ -3,10 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-
   entry: {
-    cakes4arden: './client/js/index.js',
-    vendor: ['react', 'rxjs', 'redux']
+    cakes4arden: ['babel-polyfill', './client/js/index.js'],
+    vendor: ['react', 'redux']
 
   },
   output: {

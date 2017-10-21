@@ -23,6 +23,9 @@ export const styles = {
       width: '100%',
       marginBottom: '1em'
     },
+    row: {
+      width: '100%'
+    },
     smallLogo: {
       objectFit: 'cover'
     },
