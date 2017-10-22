@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 import { Button, Form, FormGroup, Label, Input, Row, Col, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { Cart, cartLocalization } from 'react-shopping-cart'
 import { LOCALISATION } from '../../constants'
@@ -17,6 +18,17 @@ class CheckOut extends React.Component {
     this.toggle = this.toggle.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDeliveryChange = this.handleDeliveryChange.bind(this)
+    this.redirectEmptyCart(props)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.redirectEmptyCart(nextProps)
+  }
+
+  redirectEmptyCart (props) {
+    if (Object.keys(props.cartProducts).length < 1) {
+      setTimeout(() => { browserHistory.push('/shop') }, 500)
+    }
   }
 
   handleSubmit (e) {
@@ -40,7 +52,7 @@ class CheckOut extends React.Component {
   }
 
   render () {
-    return <div style={styles.shop.cart}>
+    return <div style={styles.checkOut}>
       <Modal isOpen={this.state.modal} toggle={this.toggle}>
         <ModalHeader toggle={this.toggle}>Payment Complete</ModalHeader>
         <ModalBody>
@@ -68,7 +80,7 @@ class CheckOut extends React.Component {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for='pickupDeliveryTime'>Pick Up/Delivery desired time</Label>
+              <Label for='pickupDeliveryTime'>Desired time for Pick Up/Delivery</Label>
               <Input type='time' name='pickupDeliveryTime' id='pickupDeliveryTime' placeholder='time placeholder'/>
             </FormGroup>
             <Button onClick={this.handleSubmit}>Submit</Button>

@@ -13,10 +13,6 @@ export const MARKER = '/assets/images/marker.png'
 
 export const NOT_FOUND = '/assets/images/404.png'
 
-// Tunables
-
-export const API_REQUEST_TIMEOUT = 4000
-
 // About
 
 export const CAKES_LOCATION = {

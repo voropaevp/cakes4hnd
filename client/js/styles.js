@@ -3,10 +3,10 @@ import LillyMae from '../../server/static/assets/fonts/LillyMae-Regular.otf'
 
 export const styles = {
   content: {
-    marginLeft: '2em',
-    marginRight: '2em',
-    marginTop: '1em',
-    marginBottom: '1em'
+    marginTop: '2em'
+  },
+  signUp: {
+    marginLeft: '1em'
   },
   body: {
     minHeight: '100vh',
@@ -33,9 +33,6 @@ export const styles = {
     },
     singIn: {
       paddingRight: 0
-    },
-    signUp: {
-      fontWeight: 'bold'
     }
   },
   about: {
@@ -65,17 +62,19 @@ export const styles = {
     product: {
       height: '100%'
     },
-    productHeader: {
-      fontFamily: 'LillyMae'
-    },
     checkOutLink: {
+      boxSizing: 'content-box',
       textDecoration: 'none',
       color: 'white',
+      width: '80%'
+    },
+    cart: {
       width: '80%'
     }
   },
   checkOut: {
-    marginBottom: '2em'
+    marginLeft: '1em',
+    width: '100%'
   },
   notFound: {
     height: '100%',

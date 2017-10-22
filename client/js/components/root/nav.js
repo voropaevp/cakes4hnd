@@ -30,7 +30,7 @@ export class CakesNav extends React.Component {
           <Row style={styles.nav.row}>
             <Col xs={12} sm={8}>
               <Nav navbar>
-                <NavLink tag={Link} active to='/shop'>Shop</NavLink>
+                <NavLink tag={Link} to='/shop'>Shop</NavLink>
                 <NavLink tag={Link} to='/about'>About Us</NavLink>
                 {
                   this.props.user === ADMIN_USER &&

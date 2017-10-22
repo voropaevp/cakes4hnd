@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import { Col, Row, Button } from 'reactstrap'
 import { styles } from '../../styles'
+import { animateScroll } from 'react-scroll'
 import {
   Cart,
   Product,
@@ -73,14 +74,15 @@ class Shop extends PureComponent {
       />
 
     return (
-      <Row style={styles.row} noGutters>
-        <Row style={styles.row}noGutters>
+      <Row noGutters>
+        <Row noGutters>
           {
             this.props.products.map(product => (
               <Col xs={12} sm={6} md={4} lg={4} xl={3} key={product.id}>
                 <div className='container container-fluid' style={styles.shop.product}>
                   <Product
                     {...product} checkoutButton={<div/>}
+                    scrollFunction={() => {animateScroll.scrollToBottom()}}
                     getLocalization={getProductLocalization}
                     descriptionNode={descNode(product)}
                   />
@@ -89,11 +91,13 @@ class Shop extends PureComponent {
             ))
           }
         </Row>
-        <Row noGutters style={{...styles.row, ...styles.shop.cart}}>
-          <Cart
-            checkoutButton={checkoutButtonElement}
-            getLocalization={getCartLocalization}
-          />
+        <Row noGutters id={'cart'}>
+          <div className='container container-fluid' style={styles.shop.cart}>
+            <Cart
+              checkoutButton={checkoutButtonElement}
+              getLocalization={getCartLocalization}
+            />
+          </div>
         </Row>
       </Row>
     )

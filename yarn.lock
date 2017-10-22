@@ -5796,6 +5796,13 @@ react-scroll@^1.5.4:
     object-assign "^4.1.1"
     prop-types "^15.5.8"
 
+react-scroll@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.6.1.tgz#a13540e5cc64d8b798c5692d84cad4e4776b25ce"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.5.8"
+
 react-shopping-cart@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/react-shopping-cart/-/react-shopping-cart-1.7.2.tgz#e8744376a67a77f83161210361fae4dc24d31703"

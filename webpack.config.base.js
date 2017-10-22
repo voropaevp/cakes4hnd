@@ -4,8 +4,8 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    cakes4arden: ['babel-polyfill', './client/js/index.js'],
-    vendor: ['react', 'redux']
+    cakes4arden: './client/js/index.js',
+    vendor: ['babel-polyfill', 'react', 'redux']
 
   },
   output: {

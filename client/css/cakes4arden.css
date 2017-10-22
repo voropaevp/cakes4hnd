@@ -5,3 +5,15 @@
 .form-inline{
     width: 100% !important;
 }
+
+.form-control{
+    width: 100% !important;
+}
+
+.form-group > div{
+    padding: 0;
+}
+
+.my-1 > div{
+    height: 100%;
+}

@@ -6,7 +6,7 @@ import About from './components/about/about'
 import Shop from './containers/shop/shop'
 import NotFound from './components/errors/404'
 import {SignUp} from './components/signup/signup'
-import CheckOut from './containers/shop/checkOut'
+import CheckOut from './containers/checkout/checkOut'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 const createRoutes = store => {
