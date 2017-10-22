@@ -42,7 +42,8 @@ export class CakesNav extends React.Component {
                     : <NavLink tag={Link} to={`/profile/${this.props.user}`}>{this.props.user} profile</NavLink>
                 }
                 {Object.keys(this.props.cartProducts).length !== 0 &&
-                <NavLink tag={Link} to='/checkout'>Check Out</NavLink>}
+                <NavLink style={styles.nav.checkOut} tag={Link} to='/checkout'>
+                  <i className='fa fa-cart-arrow-down' aria-hidden='true' /> Check Out</NavLink>}
               </Nav>
             </Col>
             <Col xs={12} sm={4}>

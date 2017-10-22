@@ -19,8 +19,8 @@ export const styles = {
       width: '100%',
       marginBottom: '1em'
     },
-    row: {
-      width: '100%'
+    checkOut: {
+      color: 'green'
     },
     smallLogo: {
       objectFit: 'cover'
@@ -32,10 +32,7 @@ export const styles = {
       width: '40%'
     },
     singIn: {
-      paddingRight: 0,
-      input: {
-        width: '100%'
-      }
+      paddingRight: 0
     },
     signUp: {
       fontWeight: 'bold'
@@ -71,17 +68,11 @@ export const styles = {
     productHeader: {
       fontFamily: 'LillyMae'
     },
-    cart: {
-      width: '100%'
-    },
     checkOutLink: {
       textDecoration: 'none',
       color: 'white',
       width: '80%'
     }
-  },
-  signup: {
-    width: '100%'
   },
   checkOut: {
     marginBottom: '2em'
