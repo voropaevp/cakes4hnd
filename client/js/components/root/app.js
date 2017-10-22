@@ -7,6 +7,7 @@ import { FAVICON } from '../../constants'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'animate.css/animate.css'
 import 'font-awesome/css/font-awesome.css'
+import '../../../css/cakes4arden.css'
 
 export let App = ({children}) => (
   <div style={styles.body} className='application'>

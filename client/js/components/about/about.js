@@ -33,7 +33,7 @@ const CakeStreetView = withGoogleMap(props =>
 )
 
 const About = () => (
-  <Row>
+  <Row style={styles.row}>
     <Col lg={6} md={12} >
       <h3 style={styles.about.description}>About Company:</h3>
       <img style={styles.about.bigLogo} src={BIG_LOGO}/>

@@ -2,10 +2,6 @@ import ReactFontFace from 'react-font-face'
 import LillyMae from '../../server/static/assets/fonts/LillyMae-Regular.otf'
 
 export const styles = {
-  rootContainer: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
   content: {
     marginLeft: '2em',
     marginRight: '2em',

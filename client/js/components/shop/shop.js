@@ -73,8 +73,8 @@ class Shop extends PureComponent {
       />
 
     return (
-      <Row noGutters>
-        <Row noGutters>
+      <Row style={styles.row} noGutters>
+        <Row style={styles.row}noGutters>
           {
             this.props.products.map(product => (
               <Col xs={12} sm={6} md={4} lg={4} xl={3} key={product.id}>
@@ -89,7 +89,7 @@ class Shop extends PureComponent {
             ))
           }
         </Row>
-        <Row noGutters style={styles.shop.cart}>
+        <Row noGutters style={{...styles.row, ...styles.shop.cart}}>
           <Cart
             checkoutButton={checkoutButtonElement}
             getLocalization={getCartLocalization}

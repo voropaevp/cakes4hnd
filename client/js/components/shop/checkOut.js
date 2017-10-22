@@ -47,9 +47,9 @@ class CheckOut extends React.Component {
           Thank you!
         </ModalBody>
       </Modal>
-      <Row>
+      <Row style={styles.row}>
         <Col xs={12} sm={12} md={6} lg={5} xl={4}>
-          <Form style={styles.signup}>
+          <Form style={{...styles.row, ...styles.signup}}>
             <FormGroup>
               <Label for='checkOutEmail'>Email/Login</Label>
               <Input type='email' name='email' id='checkOutEmail' placeholder='your@email.com'/>
