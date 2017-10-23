@@ -24,8 +24,8 @@ export class CakesNav extends React.Component {
   render () {
     return (
       <Navbar color='faded' light toggleable style={styles.nav.root}>
-        <NavbarToggler right onClick={this.toggle}/>
-        <NavbarBrand> <img style={styles.nav.smallLogo} href='#' src={SMALL_LOGO}/> </NavbarBrand>
+        <NavbarToggler right onClick={this.toggle} />
+        <NavbarBrand> <img style={styles.nav.smallLogo} href='#' src={SMALL_LOGO} /> </NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Row style={styles.nav.row}>
             <Col xs={12} sm={8}>
@@ -51,7 +51,7 @@ export class CakesNav extends React.Component {
                 {
                   this.props.user
                     ? <NavLink tag={Link} to='/signout' onClick={this.props.revokeToken}>Sign Out</NavLink>
-                    : <SignIn key='sign_in'/>
+                    : <SignIn key='sign_in' />
                 }
               </Nav>
             </Col>

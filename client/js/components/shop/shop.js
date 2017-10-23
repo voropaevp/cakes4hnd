@@ -19,13 +19,15 @@ const cakeWithExtraCost = {
   medium: 'Medium (+{cost}{localizedCurrency})'
 }
 
-const descNode = product => <div>
+export const descNode = product => <div>
   <h3>{LOCALISATION[product.name]}</h3>
   <img className='img-fluid' src={product.imageSrc}/>
   <div>{product.license}</div>
 </div>
 
-class Shop extends PureComponent {
+export const scrollFunc = animateScroll.scrollToBottom
+
+export class Shop extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
@@ -82,7 +84,7 @@ class Shop extends PureComponent {
                 <div className='container container-fluid' style={styles.shop.product}>
                   <Product
                     {...product} checkoutButton={<div/>}
-                    scrollFunction={() => {animateScroll.scrollToBottom()}}
+                    scrollFunction={() => { scrollFunc() }}
                     getLocalization={getProductLocalization}
                     descriptionNode={descNode(product)}
                   />

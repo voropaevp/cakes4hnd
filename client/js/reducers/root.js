@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux'
 import { cartReducer } from 'react-shopping-cart'
 import Shop from './shop'
 
-const rootReducer = combineReducers(
+export const rootReducer = combineReducers(
   {
     Auth,
     Shop,

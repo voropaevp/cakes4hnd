@@ -9,16 +9,16 @@ const getPixelPositionOffset = (width, height) => ({
   y: -(height / 2)
 })
 
-const CakeMap = withGoogleMap((props) =>
+export const CakeMap = withGoogleMap((props) =>
   <GoogleMap
     defaultCenter={CAKES_LOCATION}
     defaultZoom={LOCATION_ZOOM}
   >
-    <Marker position={CAKES_LOCATION} name={'Cakes For Arden'} place={CAKES_PLACE}/>
+    <Marker position={CAKES_LOCATION} name={'Cakes For Arden'} place={CAKES_PLACE} />
   </GoogleMap>
 )
 
-const CakeStreetView = withGoogleMap(props =>
+export const CakeStreetView = withGoogleMap(props =>
   <GoogleMap defaultZoom={LOCATION_ZOOM} defaultCenter={CAKES_LOCATION}>
     <StreetViewPanorama defaultPosition={CAKES_LOCATION} visible>
       <OverlayView
@@ -26,13 +26,13 @@ const CakeStreetView = withGoogleMap(props =>
         mapPaneName={OverlayView.OVERLAY_LAYER}
         getPixelPositionOffset={getPixelPositionOffset}
       >
-        <img src={MARKER}/>
+        <img src={MARKER} />
       </OverlayView>
     </StreetViewPanorama>
   </GoogleMap>
 )
 
-const About = () => (
+export const About = () => (
   <Row style={styles.row}>
     <Col lg={6} md={12}>
       <h3 style={styles.about.description}>About Company:</h3>
@@ -53,8 +53,8 @@ const About = () => (
     <Col lg={6} md={12} xs={12} className={'mx-auto text-center'}>
       <h3>Location:</h3>
       <CakeMap
-        containerElement={<div style={styles.about.mapContainer}/>}
-        mapElement={<div style={styles.about.map}/>}
+        containerElement={<div style={styles.about.mapContainer} />}
+        mapElement={<div style={styles.about.map} />}
       />
       <h4>
         Address:
@@ -62,8 +62,8 @@ const About = () => (
       <p>82 Albion St, Leeds LS1 6AD</p>
       <h4>Street View:</h4>
       <CakeStreetView
-        containerElement={<div style={styles.about.mapContainer}/>}
-        mapElement={<div style={styles.about.map}/>}
+        containerElement={<div style={styles.about.mapContainer} />}
+        mapElement={<div style={styles.about.map} />}
       />
     </Col>
     <Col lg={12} md={12} xs={12}>

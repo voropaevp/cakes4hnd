@@ -60,18 +60,18 @@ class CheckOut extends React.Component {
         </ModalBody>
       </Modal>
       <Row style={styles.row}>
-        <Col xs={12} sm={12} md={6} lg={5} xl={4}>
+        <Col xs={12} sm={12} md={6} lg={5} xl={4} id={'deliveryForm'}>
           <Form style={{...styles.row, ...styles.signup}}>
             <FormGroup>
               <Label for='checkOutEmail'>Email/Login</Label>
-              <Input type='email' name='email' id='checkOutEmail' placeholder='your@email.com'/>
+              <Input type='email' name='email' id='checkOutEmail' placeholder='your@email.com' />
             </FormGroup>
             <FormGroup>
               <Label for='checkOutAddress'>Address</Label>
-              <Input type='textarea' name='text' id='checkOutAddress'/>
+              <Input type='textarea' name='text' id='checkOutAddress' />
             </FormGroup>
             <FormGroup>
-              <Label for='exampleSelect'>Delivery Method</Label>
+              <Label for='deliverySelect'>Delivery Method</Label>
               <Input type='select' name='select' id='deliverySelect' onChange={this.handleDeliveryChange}>
                 <option value='none'>Select Delivery Option</option>
                 <option value='pickup'>Pick at the store</option>
@@ -81,16 +81,16 @@ class CheckOut extends React.Component {
             </FormGroup>
             <FormGroup>
               <Label for='pickupDeliveryTime'>Desired time for Pick Up/Delivery</Label>
-              <Input type='time' name='pickupDeliveryTime' id='pickupDeliveryTime' placeholder='time placeholder'/>
+              <Input type='time' name='pickupDeliveryTime' id='pickupDeliveryTime' placeholder='time placeholder' />
             </FormGroup>
             <Button onClick={this.handleSubmit}>Submit</Button>
           </Form>
         </Col>
-        <Col xs={12} sm={12} md={6} lg={7} xl={8}>
+        <Col xs={12} sm={12} md={6} lg={7} xl={8} id={'shopping-cart'}>
           <Cart
             onChange={this.props.cartProducts}
             getLocalization={this.state.getCartLocalisation}
-            checkoutButton={<div/>}
+            checkoutButton={<div />}
           />
         </Col>
       </Row>
