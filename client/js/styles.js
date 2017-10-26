@@ -62,6 +62,30 @@ export const styles = {
     product: {
       height: '100%'
     },
+    toCart: {
+      position: 'fixed',
+      display: 'flex',
+      flexDirection: 'column',
+      bottom: '0vh',
+      borderRadius: '50%',
+      right: '0vh',
+      background: 'white',
+      height: '2em',
+      border: 'solid 1px yellowgreen',
+      width: '2em',
+      color: 'green',
+      margin: '2em',
+      fontSize: '3em',
+      zIndex: '10',
+      textAlign: 'center'
+    },
+    toCartShevron: {
+      marginTop: '-0.3em'
+    },
+    toCartCart: {
+      marginTop: '0.5em',
+      fontSize: '1em'
+    },
     checkOutLink: {
       boxSizing: 'content-box',
       textDecoration: 'none',

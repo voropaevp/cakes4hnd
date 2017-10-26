@@ -6,6 +6,7 @@ import { styles } from '../../styles'
 import { FAVICON } from '../../constants'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'animate.css/animate.css'
+import {Footer} from './footer'
 import 'font-awesome/css/font-awesome.css'
 import '../../../css/cakes4arden.css'
 
@@ -26,6 +27,7 @@ export let App = ({children}) => (
         <Row noGutters style={styles.content}>{children}</Row>
       </div>
     </div>
+    <Footer />
   </div>
 )
 

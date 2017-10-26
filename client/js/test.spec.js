@@ -50,7 +50,7 @@ describe('Have a working catalogue with a sample of at least 10 items of appropr
     store = configureStore(rootReducer)
     wrapper = render(
       <Provider store={store}>
-        <Shop products={initialState.products}/>
+        <Shop products={initialState.products} cartProducts={initialState.products}/>
       </Provider>)
   })
   it('It has more than 10 items', () => {
@@ -87,9 +87,19 @@ describe('This must include at least a photograph, description, price and shippi
 })
 describe('Allow the customer to order from the stock list by selecting “Buy Now” buttons or similar. This should' +
   ' produce a suitable on screen message accepting the order and having a link back to continue shopping.', () => {
-  it('Will scroll all the way to the shopping cart instead of pop-up, which is just as good for cake shop', () => {
+  it('Non empty cart will show sticker', () => {
+    wrapper = shallow(<Shop products={initialState.products} />)
+    expect(wrapper.find('#sticker').exists()).toBe(false)
+    wrapper.setProps({
+      cartProducts: initialState.products,
+      products: initialState.products
+    })
+    expect(wrapper.find('#sticker').exists()).toBe(true)
+  })
+  it('that will scroll all to the shopping cart', () => {
     expect(scrollFunc.toString() === animateScroll.scrollToBottom.toString()).toBe(true)
   })
+
 })
 describe('You do NOT need to implement a checkout or payment system. Instead, put a “Pay Now” button in an' +
   ' appropriate place and when clicked, go to a page saying “Thank you for your payment”.', () => {

@@ -77,6 +77,11 @@ export class Shop extends PureComponent {
 
     return (
       <Row noGutters>
+        {this.props.cartProducts && Object.keys(this.props.cartProducts).length !== 0 &&
+        <div style={styles.shop.toCart} onClick={scrollFunc} id={'sticker'}>
+          <i style={styles.shop.toCartCart} className='fa fa-shopping-cart' aria-hidden='true' />
+          <i style={styles.shop.toCartShevron} className='fa fa-angle-down' aria-hidden='true' />
+        </div>}
         <Row noGutters>
           {
             this.props.products.map(product => (
@@ -84,7 +89,7 @@ export class Shop extends PureComponent {
                 <div className='container container-fluid' style={styles.shop.product}>
                   <Product
                     {...product} checkoutButton={<div/>}
-                    scrollFunction={() => { scrollFunc() }}
+                    scrollFunction={() => {}}
                     getLocalization={getProductLocalization}
                     descriptionNode={descNode(product)}
                   />
@@ -120,7 +125,8 @@ Shop.propTypes = {
       propertiesToShowInCart: PropTypes.any
     }
     )
-  )
+  ),
+  cartProducts: PropTypes.any
 }
 
 export default Shop
