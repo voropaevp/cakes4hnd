@@ -25,7 +25,7 @@ export class CakesNav extends React.Component {
     return (
       <Navbar color='faded' light toggleable style={styles.nav.root}>
         <NavbarToggler right onClick={this.toggle} />
-        <NavbarBrand> <img style={styles.nav.smallLogo} href='#' src={SMALL_LOGO} /> </NavbarBrand>
+        <NavbarBrand tag={Link} to={'/'}><img style={styles.nav.smallLogo} href='#' src={SMALL_LOGO} /> </NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Row style={styles.nav.row}>
             <Col xs={12} sm={8}>
