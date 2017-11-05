@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
-import { Col, Row, Button } from 'reactstrap'
+import Delay from 'react-delay'
+import { Col, Row, Button, Tooltip } from 'reactstrap'
 import { styles } from '../../styles'
 import { animateScroll } from 'react-scroll'
 import {
@@ -64,6 +65,7 @@ export class Shop extends PureComponent {
 
     const checkoutButtonElement =
       <CheckoutButton
+        id='checkout-button'
         getLocalization={getCheckoutButtonLocalization}
         checkoutURL='/checkout'
         linkComponent={() => (
@@ -74,18 +76,31 @@ export class Shop extends PureComponent {
           </Link>
         )}
       />
-
     return (
-      <Row noGutters>
+      <Row noGutters id={'shop-row'}>
         {this.props.cartProducts && Object.keys(this.props.cartProducts).length !== 0 &&
-        <div style={styles.shop.toCart} onClick={scrollFunc} id={'sticker'}>
-          <i style={styles.shop.toCartCart} className='fa fa-shopping-cart' aria-hidden='true' />
-          <i style={styles.shop.toCartShevron} className='fa fa-angle-down' aria-hidden='true' />
+        <div>
+          <Delay>
+            <Tooltip
+              placement='left'
+              style={{zIndex: 99}}
+              isOpen={this.props.tourStage === 1}
+              tether={{target: `#sticker i`}}
+              toggle={() => {this.props.tourStage === 1 && this.props.tourNextStep()}}
+              target={'shop-row'}
+            >
+              Click on the cart will move the screen to your shopping cart
+            </Tooltip>
+          </Delay>
+          <div style={styles.shop.toCart} onClick={scrollFunc} id={'sticker'}>
+            <i style={styles.shop.toCartCart} className='fa fa-shopping-cart' aria-hidden='true'/>
+            <i style={styles.shop.toCartShevron} className='fa fa-angle-down' aria-hidden='true'/>
+          </div>
         </div>}
         <Row noGutters>
           {
             this.props.products.map(product => (
-              <Col xs={12} sm={6} md={4} lg={4} xl={3} key={product.id}>
+              <Col xs={12} sm={6} md={4} lg={4} xl={3} key={product.id} id={product.id}>
                 <div className='container container-fluid' style={styles.shop.product}>
                   <Product
                     {...product} checkoutButton={<div/>}
@@ -97,6 +112,18 @@ export class Shop extends PureComponent {
               </Col>
             ))
           }
+          <Delay>
+            <Tooltip
+              placement='right'
+              style={{zIndex: 99}}
+              isOpen={this.props.tourStage === 0}
+              tether={{target: `.my-1 button`}}
+              toggle={() => {this.props.tourStage === 0 && this.props.tourNextStep()}}
+              target={`shop-row`}
+            >
+              To start purchasing click on any of Add to Cart buttons
+            </Tooltip>
+          </Delay>
         </Row>
         <Row noGutters id={'cart'}>
           <div className='container container-fluid' style={styles.shop.cart}>
@@ -126,7 +153,9 @@ Shop.propTypes = {
     }
     )
   ),
-  cartProducts: PropTypes.any
+  cartProducts: PropTypes.any,
+  tourStage: PropTypes.number.isRequired,
+  tourNextStep: PropTypes.func.isRequired
 }
 
 export default Shop

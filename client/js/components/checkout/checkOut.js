@@ -1,10 +1,11 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import { Button, Form, FormGroup, Label, Input, Row, Col, Modal, ModalBody, ModalHeader } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Row, Col, Modal, ModalBody, ModalHeader, Tooltip } from 'reactstrap'
 import { Cart, cartLocalization } from 'react-shopping-cart'
 import { LOCALISATION } from '../../constants'
 import PropTypes from 'prop-types'
 import { styles } from '../../styles'
+import Delay from 'react-delay'
 
 const {getDefaultLocalization} = cartLocalization
 
@@ -64,11 +65,11 @@ class CheckOut extends React.Component {
           <Form style={{...styles.row, ...styles.signup}}>
             <FormGroup>
               <Label for='checkOutEmail'>Email/Login</Label>
-              <Input type='email' name='email' id='checkOutEmail' placeholder='your@email.com' />
+              <Input type='email' name='email' id='checkOutEmail' placeholder='your@email.com'/>
             </FormGroup>
             <FormGroup>
               <Label for='checkOutAddress'>Address</Label>
-              <Input type='textarea' name='text' id='checkOutAddress' />
+              <Input type='textarea' name='text' id='checkOutAddress'/>
             </FormGroup>
             <FormGroup>
               <Label for='deliverySelect'>Delivery Method</Label>
@@ -81,18 +82,40 @@ class CheckOut extends React.Component {
             </FormGroup>
             <FormGroup>
               <Label for='pickupDeliveryTime'>Desired time for Pick Up/Delivery</Label>
-              <Input type='time' name='pickupDeliveryTime' id='pickupDeliveryTime' placeholder='time placeholder' />
+              <Input type='time' name='pickupDeliveryTime' id='pickupDeliveryTime' placeholder='time placeholder'/>
             </FormGroup>
-            <Button onClick={this.handleSubmit}>Submit</Button>
+            <Button id='checkOutSubmit' onClick={this.handleSubmit}>Submit</Button>
           </Form>
         </Col>
         <Col xs={12} sm={12} md={6} lg={7} xl={8} id={'shopping-cart'}>
           <Cart
             onChange={this.props.cartProducts}
             getLocalization={this.state.getCartLocalisation}
-            checkoutButton={<div />}
+            checkoutButton={<div/>}
           />
         </Col>
+        <Delay>
+          <Tooltip
+            placement='right'
+            style={{zIndex: 99}}
+            isOpen={this.props.tourStage === 2}
+            toggle={() => {this.props.tourStage === 2 && this.props.tourNextStep()}}
+            target={`deliverySelect`}
+          >
+            Pick delivery method
+          </Tooltip>
+        </Delay>
+        <Delay>
+          <Tooltip
+            placement='right'
+            style={{zIndex: 99}}
+            isOpen={this.props.tourStage === 2}
+            toggle={() => {this.props.tourStage === 2 && this.props.tourNextStep()}}
+            target={`checkOutSubmit`}
+          >
+            Submit will take you to payment page
+          </Tooltip>
+        </Delay>
       </Row>
     </div>
   }
@@ -110,7 +133,9 @@ CheckOut.propTypes = {
       currency: PropTypes.string
     }
     )
-  )
+  ),
+  tourStage: PropTypes.number.isRequired,
+  tourNextStep: PropTypes.func.isRequired
 }
 
 export default CheckOut

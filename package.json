@@ -74,6 +74,8 @@
     "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
+    "react-autocomplete": "^1.7.2",
+    "react-delay": "^0.1.0",
     "react-dom": "^15.4.2",
     "react-font-face": "^0.2.1",
     "react-google-maps": "^8.3.4",
